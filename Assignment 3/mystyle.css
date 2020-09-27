@@ -1,0 +1,57 @@
+<style>
+    h1 {
+        font-family: cursive;
+        font-size: 600%;
+        color: olivedrab;
+        text-align: center;
+    }
+    .menu {
+        border-width: 10px;
+        border-style:inherit;
+        border-color: olivedrab;
+        background-color:black;
+        width: fit-content;
+        padding: 1mm;
+        width: 2000px;
+
+    }
+    h2 {
+        font-family: cursive;
+        color: green;
+        font-size: 300%;
+    }
+    body {
+        background-image: url("303526.jpg");
+        font-family:'Times New Roman', Times, serif;
+        color: darkseagreen;
+        font-size: medium;
+        line-height: 50px;
+    }
+    #intro {
+        font-size: large;
+        color: rgb(91, 139, 17);
+    }
+    ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color:black;
+}
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li a:hover {
+background-color:darkslategrey;
+}
+    
+</style>
