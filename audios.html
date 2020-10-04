@@ -1,0 +1,652 @@
+<html>
+
+    <head>
+        <title>Assignment 4</title>
+
+    </head>
+    <body onload="Discography()">
+    <header class="sticky headerTitle">
+        Assignment 4
+    </header>
+    <style>
+    table, th, td {
+        border: 1px solid white;
+        padding: 15px black;
+    }
+    body {
+        background-color:mistyrose;
+        color:midnightblue;
+
+    }
+    </style>
+   <body>
+<h2 style="text-align: center">Comparison of Compression Algorithms</h2>
+
+<table style="width:100%";>
+    <tr>
+      <th>Filename</th>
+      <th>Compression algorithm</th>
+      <th>Bit-rate</th>
+      <th>Original size</th>
+      <th>Compressed size</th>
+      <th>Compression ratio</th>
+      <th>Link to original audio</th>
+      <th>Link to compressed audio</th>
+      <th>Link to residual audio</th>
+    </tr>
+    <tr>
+        <th>Happy Together</th>
+        <th>MP3</th>
+        <th>96kbps</th>
+        <th>11.3MB</th>
+        <th>516KB</th>
+        <th>0.05</th>
+        <th><audio controls>
+            
+            <source src="HappyTogether.wav" type="audio/wav">
+          
+          </audio></th>
+        <th><audio controls>
+            <source src="1-a-1.mp3" type="audio/mpeg">
+          </audio></th>
+        <th><audio controls>
+            <source src="1-a-1-R.wav" type="audio/wav">
+          </audio></th>
+      </tr>
+      <tr>
+        <th>Happy Together</th>
+        <th>MP3</th>
+        <th>128kbps</th>
+        <th>11.3MB</th>
+        <th>1MB</th>
+        <th>0.09</th>
+        <th><audio controls>
+            
+            <source src="HappyTogether.wav" type="audio/wav">
+          
+          </audio></th>
+        <th><audio controls>
+            <source src="1-a-2.mp3" type="audio/mpeg">
+          </audio></th>
+        <th><audio controls>
+            <source src="1-a-2-R.wav" type="audio/wav">
+          </audio></th>
+      </tr>
+      <tr>
+        <th>Happy Together</th>
+        <th>MP3</th>
+        <th>192kbps</th>
+        <th>11.3MB</th>
+        <th>1MB</th>
+        <th>0.09</th>
+        <th><audio controls>
+            
+            <source src="HappyTogether.wav" type="audio/wav">
+          
+          </audio></th>
+        <th><audio controls>
+            <source src="1-a-3.mp3" type="audio/mpeg">
+          </audio></th>
+        <th><audio controls>
+            <source src="1-a-3-R.wav" type="audio/wav">
+          </audio></th>
+      </tr>
+      <tr>
+        <th>Happy Together</th>
+        <th>MP3</th>
+        <th>320kbps</th>
+        <th>11.3MB</th>
+        <th>2.1MB</th>
+        <th>0.19</th>
+        <th><audio controls>
+            
+            <source src="HappyTogether.wav" type="audio/wav">
+          
+          </audio></th>
+        <th><audio controls>
+            <source src="1-a-4.mp3" type="audio/mpeg">
+          </audio></th>
+        <th><audio controls>
+            <source src="1-a-4-R.wav" type="audio/wav">
+          </audio></th>
+        </tr>
+        <tr>
+            <th>Happy Together</th>
+            <th>OGG/Vorbs</th>
+            <th>96kbps</th>
+            <th>11.3MB</th>
+            <th>666KB</th>
+            <th>0.06</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-b-1.ogg" type="audio/ogg">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-b-1-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>OGG/Vorbs</th>
+            <th>128kbps</th>
+            <th>11.3MB</th>
+            <th>1MB</th>
+            <th>0.09</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-b-2.ogg" type="audio/ogg">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-b-2-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>OGG/Vorbs</th>
+            <th>192kbps</th>
+            <th>11.3MB</th>
+            <th>1.4MB</th>
+            <th>0.12</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-b-3.ogg" type="audio/ogg">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-b-3-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>OGG/Vorbs</th>
+            <th>320kbps</th>
+            <th>11.3MB</th>
+            <th>3.1MB</th>
+            <th>0.27</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-b-4.ogg" type="audio/ogg">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-b-4-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>AC3</th>
+            <th>96kbps</th>
+            <th>11.3MB</th>
+            <th>767KB</th>
+            <th>0.07</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-c-1-AC3.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-c-1-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>AC3</th>
+            <th>128kbps</th>
+            <th>11.3MB</th>
+            <th>1MB</th>
+            <th>0.09</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-c-2-AC3.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-c-2-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>AC3</th>
+            <th>192kbps</th>
+            <th>11.3MB</th>
+            <th>1.5MB</th>
+            <th>0.13</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-c-3-AC3.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-c-3-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>AC3</th>
+            <th>320kbps</th>
+            <th>11.3MB</th>
+            <th>2.6MB</th>
+            <th>0.23</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-c-4-AC3.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-c-4-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>M4A (AAC)</th>
+            <th>96kbps</th>
+            <th>11.3MB</th>
+            <th>557KB</th>
+            <th>0.05</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-d-1-M4A.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-d-1-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>M4A (AAC)</th>
+            <th>128kbps</th>
+            <th>11.3MB</th>
+            <th>1.1MB</th>
+            <th>0.1</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-d-2-M4A.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-d-2-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>M4A (AAC)</th>
+            <th>192kbps</th>
+            <th>11.3MB</th>
+            <th>1.6MB</th>
+            <th>0.14</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-d-3-M4A.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-d-3-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Happy Together</th>
+            <th>M4A (AAC)</th>
+            <th>320kbps</th>
+            <th>11.3MB</th>
+            <th>2.1MB</th>
+            <th>0.19</th>
+            <th><audio controls>
+                
+                <source src="HappyTogether.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="1-d-4-M4A.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="1-d-4-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>MP3</th>
+            <th>96kbps</th>
+            <th>11MB</th>
+            <th>516KB</th>
+            <th>0.47</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-a-1.mp3" type="audio/mp3">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-a-1-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>MP3</th>
+            <th>128kbps</th>
+            <th>11MB</th>
+            <th>1MB</th>
+            <th>0.09</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-a-2.mp3" type="audio/mp3">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-a-2-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>MP3</th>
+            <th>192kbps</th>
+            <th>11MB</th>
+            <th>1.5MB</th>
+            <th>0.14</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-a-3.mp3" type="audio/mp3">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-a-3-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>MP3</th>
+            <th>320kbps</th>
+            <th>11MB</th>
+            <th>2.1MB</th>
+            <th>0.19</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-a-4.mp3" type="audio/mp3">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-a-4-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>Ogg/Vorbs</th>
+            <th>96kbps</th>
+            <th>11MB</th>
+            <th>723KB</th>
+            <th>0.07</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-b-1.ogg" type="audio/ogg">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-b-1-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>Ogg/Vorbs</th>
+            <th>128kbps</th>
+            <th>11MB</th>
+            <th>1.2MB</th>
+            <th>0.11</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-b-2.ogg" type="audio/ogg">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-b-2-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>Ogg/Vorbs</th>
+            <th>192kbps</th>
+            <th>11MB</th>
+            <th>1.6MB</th>
+            <th>0.15</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-b-3.ogg" type="audio/ogg">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-b-3-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>Ogg/Vorbs</th>
+            <th>320kbps</th>
+            <th>11MB</th>
+            <th>3.3MB</th>
+            <th>0.3</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-b-4.ogg" type="audio/ogg">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-b-4-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>AC3</th>
+            <th>96kbps</th>
+            <th>11MB</th>
+            <th>750KB</th>
+            <th>0.07</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-c-1-AC3.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-c-1-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>AC3</th>
+            <th>128kbps</th>
+            <th>11MB</th>
+            <th>1MB</th>
+            <th>0.09</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-c-2-AC3.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-c-2-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>AC3</th>
+            <th>192kbps</th>
+            <th>11MB</th>
+            <th>1.5MB</th>
+            <th>0.14</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-c-3-AC3.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-c-3-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>AC3</th>
+            <th>320kbps</th>
+            <th>11MB</th>
+            <th>2.5MB</th>
+            <th>0.23</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-c-4-AC3.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-c-4-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>M4A(AAC)</th>
+            <th>96kbps</th>
+            <th>11MB</th>
+            <th>557KB</th>
+            <th>0.05</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-d-1-M4A.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-d-1-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>M4A(AAC)</th>
+            <th>128kbps</th>
+            <th>11MB</th>
+            <th>1.1MB</th>
+            <th>0.1</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-d-2-M4A.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-d-2-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <tr>
+            <th>Night</th>
+            <th>M4A(AAC)</th>
+            <th>192kbps</th>
+            <th>11MB</th>
+            <th>1.6MB</th>
+            <th>0.15</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-d-3-M4A.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-d-3-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          <th>Night</th>
+            <th>M4A(AAC)</th>
+            <th>320kbps</th>
+            <th>11MB</th>
+            <th>2.1MB</th>
+            <th>0.10</th>
+            <th><audio controls>
+                
+                <source src="Night.wav" type="audio/wav">
+              
+              </audio></th>
+            <th><audio controls>
+                <source src="2-d-4-M4A.wav" type="audio/wav">
+              </audio></th>
+            <th><audio controls>
+                <source src="2-d-4-R.wav" type="audio/wav">
+              </audio></th>
+          </tr>
+          
+          
+  </table>
+
+
+
+</body>
+
+</html>
