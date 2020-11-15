@@ -1,0 +1,148 @@
+ 
+<html>
+
+<head>
+    <title>MusicBrainz API Call</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+h1 {
+                font-size: 600%;
+                color: purple;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            h2 {
+                font-size: 300%;
+                color: salmon;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            body {
+                background-color:mistyrose;
+                font-size: 135%;
+                color: rebeccapurple;
+                font-family: 'Times New Roman', Times, serif;
+                
+            }
+
+        table {
+  font-family:'Times New Roman', Times, serif
+  border-collapse: collapse;
+  width: 75%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h2>Assignment 6</h2>
+        <p>Retrieve discography for a given user-entered artist</p>
+   
+        <!-- STEP 1: CREATE FORM -->
+        <form method="GET">
+       <label for="name">Enter Artist Name:</label>
+       <input type="text" name="artist" id="name">
+       <input type="submit" value="Click to retrieve release data">
+   </form>
+   <!-- PLACEHOLDER-->
+   <p id="placeholder">
+       </p>
+    </div>
+    
+<script type="text/Javascript">
+
+/* STEP 2: parse data submitted through form -- Main Function */
+
+    function queryArtist() {
+        let params = (new URL(document.location)).searchParams;
+        if (params.has('artist')) {
+            let artistName = params.get('artist');
+            
+            sendQuery("artist?query="+artistName, getMBID);
+        }
+    }
+
+  
+    /* 
+    Auxiliary functions
+    - httpGet, function for executing the XMLHttpRequest object
+    -callback functions to parse each response
+    */ 
+     function sendQuery(query, cbFunction) {
+
+            let mbBaseURL = "https://musicbrainz.org/ws/2/";
+            
+            let queryURL = mbBaseURL + query;
+            let xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", queryURL);
+            xmlHttp.send();
+
+            xmlHttp.onreadystatechange = function () {
+                if(this.readyState == 4 && this.status == 200) {
+                    cbFunction(this);
+                }
+            };
+    }
+
+  
+        function getMBID(xhttp) {
+            let retrievedData = xhttp.responseXML;
+            console.log(retrievedData);
+            let artistData = retrievedData.getElementsByTagName('artist')[0];
+            let artistMBID = artistData.id;
+            console.log(artistMBID);
+            let artistCountry = artistData.getElementsByTagName('country')[0].innerHTML;
+            console.log(artistCountry);
+            let artistName = artistData.getElementsByTagName('name')[0].innerHTML;
+            console.log(artistName);
+
+            sendQuery("release-group?artist="+artistMBID+"&type=album|ep", getDiscography);
+        }
+        function getDiscography(xhttp) {
+            let retrievedData=xhttp.responseXML;
+            discography=retrievedData.getElementsByTagName("release-group");
+            
+            let placeholder = document.getElementById('placeholder');
+            let tableHTML = 
+            `
+            <table>
+            <tr>
+            <th>Album Name </th>
+            <th>First Release Date</th>
+            </tr>`;
+            let albumHTML;
+            let albumName;
+            let firstReleaseDate;
+            for(i=0; i<discography.length;i++)
+            {
+                albumHTML = discography[i];
+                albumName = albumHTML.getElementsByTagName("title")[0].innerHTML;
+                firstReleaseDate = albumHTML.getElementsByTagName("first-release-date")[0].innerHTML;
+                tableHTML +=
+                `
+                <tr>
+                <td>${albumName}</td>
+                <td>${firstReleaseDate}</td>
+                </tr>`;
+            }
+        tableHTML += `
+        </table>`;
+        placeholder.innerHTML = tableHTML;
+
+        }
+    window.onload = queryArtist;
+</script>
+
+</body>
+
+</html>
