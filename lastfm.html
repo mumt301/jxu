@@ -86,7 +86,7 @@
 
                   //Step 4: Check the Last.fm API call and response to get info about artist
                   // Crafting the API call/message
-                  let queryURL = "http://ws.audioscrobbler.com/2.0/" + "?method=" + "track.getSimilar" + "&track=" + songTitle + "&artist=" + artistName + "&api_key=" + apiKey;
+                  let queryURL = "https://ws.audioscrobbler.com/2.0/" + "?method=" + "track.getSimilar" + "&track=" + songTitle + "&artist=" + artistName + "&api_key=" + apiKey;
                   
                   console.log(queryURL);
 
@@ -120,7 +120,7 @@
                 
                 console.log(songTitle);
                 console.log(artist);
-                let queryURL = "http://ws.audioscrobbler.com/2.0/" + "?method=" + "track.getInfo" + "&track=" + songTitle + "&artist=" + artist + "&api_key=" + apiKey;
+                let queryURL = "https://ws.audioscrobbler.com/2.0/" + "?method=" + "track.getInfo" + "&track=" + songTitle + "&artist=" + artist + "&api_key=" + apiKey;
                   
                 console.log(queryURL);
                 httpGet(queryURL, getBioAndImage);
