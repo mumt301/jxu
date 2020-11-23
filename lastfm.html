@@ -1,0 +1,181 @@
+<html>
+    <head>
+        <title>Last.fm API Call</title>
+        <link rel="stylesheet" href="https://minicss.org/flavorFiles/mini-default.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            h1 {
+                font-size: 600%;
+                color: purple;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            h2 {
+                font-size: 200%;
+                color: salmon;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            body {
+                background-color:mistyrose;
+                font-size: 135%;
+                color: rebeccapurple;
+                font-family: 'Times New Roman', Times, serif;
+                
+            
+}
+            }
+           </style>
+    </head>
+    <div>
+    <body>
+        <h1>Assignment 7</h1>
+        <h2>Type a song you like and its artist! We'll recommend you five similar tracks.</h2>
+
+        <!-- Step 2: Creating a form-->
+        <form method="GET">
+            <label for="songTitle">Song Title:</label>
+            <input type="text" name="songTitle" id="songTitle">
+            <br>
+            <label for="artist">Artist name:</label>
+            <input type="text" name="artistName" id="artist">
+            <br>
+            <input type="submit">
+       
+       
+          
+        </form>
+        </div>
+        <!-- placeholder for results to be rendered in step 7-->
+        <div id="table" class="container">
+            <table id = "table" style = "overflow: visible;">
+              <tr>
+                  <td style = "border: 1cm purple; text-align: left;"></td>
+              </tr> 
+              <tr>
+                <td style = "border: 1cm purple; text-align: left;"></td>
+            </tr>
+            <tr>
+                <td style = "border: 1cm purple; text-align: left;"></td>
+            </tr>
+            <tr>
+                <td style = "border: 1cm purple; text-align: left;"></td>
+            </tr>
+            <tr>
+                <td style = "border: 1cm purple; text-align: left;"></td>
+            </tr> 
+              
+            </table>
+        </div>
+        
+    
+        <script type="text/Javascript">
+//global variables
+        const apiKey = "6074bcab8e5129535207ac05a2597616";
+        var bios = [];
+        var imgs = [];
+        var counter = 0;
+
+            function queryArtist() {
+                //Step 3: Retrieve artist name data from form//
+                let params = (new URL(document.location)).searchParams;
+                if (params.has('artistName') && params.has('songTitle')) {
+
+                  let artistName = params.get('artistName');
+                  console.log(artistName);
+                  let songTitle = params.get('songTitle');
+                  console.log(songTitle);
+
+                  //Step 4: Check the Last.fm API call and response to get info about artist
+                  // Crafting the API call/message
+                  let queryURL = "http://ws.audioscrobbler.com/2.0/" + "?method=" + "track.getSimilar" + "&track=" + songTitle + "&artist=" + artistName + "&api_key=" + apiKey;
+                  
+                  console.log(queryURL);
+
+                  //Step 5: Making the request
+                  httpGet(queryURL, getTracks);
+
+                }
+            }
+        
+            function httpGet(theURL, cbFunction) {
+                //Create a new XMLHttpRequest object
+                let xmlHttp = new XMLHttpRequest();
+                //Specify request method and the URl, and send the request to server
+                xmlHttp.open("GET", theURL);
+                xmlHttp.send();
+                xmlHttp.onreadystatechange = function () {
+                    if(this.readyState == 4 && this.status == 200) {
+                        cbFunction(this);
+                        }
+                    };
+                }
+                
+
+            //Step 6: parse results in callback function
+            function getTracks(xhttp) {
+                let retrievedData =xhttp.responseXML
+                console.log(retrievedData);
+                for(var i=0; i<10; i++) {
+                    let songTitle = retrievedData.getElementsByTagName("name") [i*2].innerHTML;
+                    let artist = retrievedData.getElementsByTagName("name") [i*2+1].innerHTML;
+                
+                console.log(songTitle);
+                console.log(artist);
+                let queryURL = "http://ws.audioscrobbler.com/2.0/" + "?method=" + "track.getInfo" + "&track=" + songTitle + "&artist=" + artist + "&api_key=" + apiKey;
+                  
+                console.log(queryURL);
+                httpGet(queryURL, getBioAndImage);
+            }
+        }
+                
+            function getBioAndImage(xhttp) {
+                counter = counter+1;
+                
+                let retrievedData = xhttp.responseXML;
+                console.log(retrievedData);
+
+                if(retrievedData.getElementsByTagName("content")[0] !=null&&retrievedData.getElementsByTagName("image")[3]!=null) {
+                    
+                        let bioContent = retrievedData.getElementsByTagName("content")[0].innerHTML;
+                        let imageURL = retrievedData.getElementsByTagName("image")[3].innerHTML;
+                        
+                        console.log(bioContent);
+                        bios.push(bioContent);
+                        console.log(imageURL);
+                        imgs.push(imageURL);
+                    }
+                    if(counter == 10) {
+                        displayTable();
+                    }
+                }
+      
+
+                //Step 7: Display results
+                //(add a placeholder element in the HTML code and then app)
+                function displayTable() {
+                    console.log("here"+bios.length);
+                    let table = document.createElement("table");
+                    table.id = "table";
+
+                    table.style.overflow = "visible";
+                    for (row = 0; row < 5; row++) {
+                        tr = document.createElement ('tr');
+                        let bio = document.createElement ("p");
+                        bio.innerHTML = bios[row];
+                        let image = document.createElement("img");
+                        image.src = imgs[row];
+                        td = document.createElement('td');
+                        td.style.border = "solid 4px purple";
+                        td.style.textAlign = 'center';
+                        td.style.backgroundColor = "mistyrose";
+                        tr.appendChild(td);
+                        td.appendChild(bio);
+                        td.appendChild(image);
+                        table.appendChild(tr);                    
+                }
+                document.getElementById("table").appendChild(table);
+            }
+            window.onload = queryArtist;
+        </script>
+        
+    </body>
+</html>
